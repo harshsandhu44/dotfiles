@@ -1,0 +1,22 @@
+[default_session]
+startup_script = "nvim"
+
+[[session]]
+name = "nglx"
+path = "~/Code/spear/nglx/"
+startup_command = "nvim ."
+
+[[session]]
+name = "nglx-backend"
+path = "~/Code/spear/nglx-backend/"
+startup_command = "nvim ."
+
+[[session]]
+name = "nglx-account"
+path = "~/Code/spear/nglx-account/"
+startup_command = "nvim ."
+
+[[session]]
+name = "dotfiles"
+path = "~/Dotfiles/"
+startup_command = "nvim ."
