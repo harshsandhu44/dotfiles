@@ -1,26 +1,36 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     opts = {
-      style = "night", -- 'night' is the darkest variant
-      transparent = false,
-      styles = {
-        sidebars = "dark",
-        floats = "dark",
+      terminal_colors = true,
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = false,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
-      on_colors = function(colors)
-        colors.bg = "#18181b" -- nearly black background
-        colors.bg_dark = "#18181b"
-        colors.bg_float = "#18181b"
-        colors.bg_sidebar = "#18181b"
-      end,
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true,
+      contrast = "",
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = true,
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
     },
   },
 }
