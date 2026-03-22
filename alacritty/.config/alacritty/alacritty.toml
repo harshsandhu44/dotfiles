@@ -1,0 +1,35 @@
+[general]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+live_config_reload = true
+
+[window]
+padding = { x = 12, y = 10 }
+decorations = "full"
+opacity = 1.0
+option_as_alt = "Both"
+startup_mode = "Windowed"
+
+[font]
+size = 16
+
+[font.normal]
+family = "GeistMono Nerd Font"
+style = "Regular"
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+[terminal]
+shell = { program = "/bin/zsh", args = ["-l"] }
+
+[mouse]
+hide_when_typing = true
+
+[env]
+TERM = "xterm-256color"
