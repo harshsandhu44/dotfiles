@@ -8,9 +8,12 @@ decorations = "full"
 opacity = 1.0
 option_as_alt = "Both"
 startup_mode = "Windowed"
+dynamic_title = true
 
 [font]
 size = 16
+offset = { x = 0, y = 4 }
+glyph_offset = { x = 0, y = 0 }
 
 [font.normal]
 family = "GeistMono Nerd Font"
@@ -23,7 +26,10 @@ save_to_clipboard = true
 history = 10000
 
 [cursor]
-style = { shape = "Beam", blinking = "On" }
+style = { shape = "Block", blinking = "Off" }
+
+[colors]
+draw_bold_text_with_bright_colors = true
 
 [terminal]
 shell = { program = "/bin/zsh", args = ["-l"] }
