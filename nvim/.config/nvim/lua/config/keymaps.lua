@@ -75,7 +75,9 @@ local function project_cmd(script)
 end
 
 -- Diagnostics
+---@diagnostic disable-next-line: deprecated
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+---@diagnostic disable-next-line: deprecated
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 map("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics" })
 map("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
@@ -136,6 +138,7 @@ vim.api.nvim_create_autocmd("User", {
     end
     local gs = require("gitsigns")
     map("n", "<leader>ghs", gs.stage_hunk, { desc = "Stage Hunk" })
+    ---@diagnostic disable-next-line: deprecated
     map("n", "<leader>ghu", gs.undo_stage_hunk, { desc = "Unstage Hunk" })
     map("n", "<leader>ghp", gs.preview_hunk, { desc = "Preview Hunk" })
     map("n", "<leader>ghb", function()
