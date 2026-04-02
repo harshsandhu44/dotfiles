@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Secrets / credentials
+*.env
+.env.*
+*_secret*
+*_token*
+
+# Neovim
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/plugin/
+nvim/.config/nvim/.cache/
+
+# Compiled / cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# Editor swap / backup files
+*.swp
+*.swo
+*~
