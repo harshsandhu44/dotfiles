@@ -1,36 +1,17 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim",
+    "sainnhe/sonokai",
     priority = 1000,
-    opts = {
-      terminal_colors = true,
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = false,
-        emphasis = true,
-        comments = true,
-        operators = false,
-        folds = true,
-      },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true,
-      contrast = "",
-      palette_overrides = {},
-      overrides = {},
-      dim_inactive = false,
-      transparent_mode = true,
-    },
+    config = function()
+      vim.g.sonokai_style = "maia"
+      vim.g.sonokai_better_performance = 1
+      vim.g.sonokai_transparent_background = 1
+    end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "sonokai",
     },
   },
 }
