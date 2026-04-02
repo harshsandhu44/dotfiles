@@ -37,6 +37,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = save_pipeline,
+  callback = function()
+    local ok, conform = pcall(require, "conform")
+    if ok then
+      conform.format({ lsp_fallback = true })
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = save_pipeline,
   callback = function()

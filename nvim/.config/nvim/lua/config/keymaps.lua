@@ -117,6 +117,33 @@ map("n", "<leader>tT", function()
   project_cmd("typecheck")
 end, { desc = "Task: Typecheck" })
 
+-- LazyVim LSP defaults (set by LazyVim, no need to redefine):
+-- K          - Hover docs
+-- gd         - Go to definition
+-- gD         - Go to declaration
+-- gr         - Go to references
+-- gi         - Go to implementation
+-- <leader>cf - Format
+-- <leader>ca - Code action
+
+-- Gitsigns inline actions
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyLoad",
+  once = true,
+  callback = function(event)
+    if event.data ~= "gitsigns.nvim" then
+      return
+    end
+    local gs = require("gitsigns")
+    map("n", "<leader>ghs", gs.stage_hunk, { desc = "Stage Hunk" })
+    map("n", "<leader>ghu", gs.undo_stage_hunk, { desc = "Unstage Hunk" })
+    map("n", "<leader>ghp", gs.preview_hunk, { desc = "Preview Hunk" })
+    map("n", "<leader>ghb", function()
+      gs.blame_line({ full = true })
+    end, { desc = "Blame Line" })
+  end,
+})
+
 -- LazyGit in Neovim
 map("n", "<leader>gg", function()
   if vim.fn.exists(":LazyGit") == 2 then
