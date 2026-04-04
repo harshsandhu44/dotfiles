@@ -110,6 +110,9 @@ map("n", "<leader>cE", function()
   code_action_only("source.fixAll.eslint")
 end, { desc = "ESLint Fix All" })
 
+-- Paste without overwriting the default register
+map("x", "<leader>p", '"_dP', { desc = "Paste without overwriting register" })
+
 -- Task runner
 map("n", "<leader>or", "<cmd>OverseerRun<cr>", { desc = "Run Task" })
 map("n", "<leader>ot", "<cmd>OverseerToggle<cr>", { desc = "Task List" })
