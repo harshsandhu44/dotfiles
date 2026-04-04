@@ -12,9 +12,9 @@ DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
 section() { echo -e "\n${BLUE}==>${NC} ${YELLOW}$1${NC}"; }
-ok()      { echo -e "  ${GREEN}✓${NC} $1"; }
-info()    { echo -e "  ${BLUE}·${NC} $1"; }
-would()   { echo -e "  ${YELLOW}~${NC} would install: $1"; }
+ok() { echo -e "  ${GREEN}✓${NC} $1"; }
+info() { echo -e "  ${BLUE}·${NC} $1"; }
+would() { echo -e "  ${YELLOW}~${NC} would install: $1"; }
 
 run() {
   if $DRY_RUN; then
@@ -138,6 +138,7 @@ CARGO_PACKAGES=(
   "muxx"
   "gitpilot"
   "cargo-dist"
+  "cargo-cache"
 )
 
 for pkg in "${CARGO_PACKAGES[@]}"; do
