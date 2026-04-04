@@ -9,3 +9,6 @@ opt.scrolloff = 8
 opt.smoothscroll = false
 opt.cursorline = true -- Disable highlighting of the current line
 opt.mouse = "" -- Disable mouse (available options: "a", "n", "")
+opt.colorcolumn = "80" -- Highlight column 80
+opt.wrap = true
+opt.linebreak = true

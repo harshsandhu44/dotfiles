@@ -82,6 +82,15 @@ map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 map("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics" })
 map("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
 
+-- Come out of the insert mode
+map("i", "jj", "<Esc>", { desc = "Escape insert mode" })
+
+-- Disable arrow keys
+map({ "n" }, "<Left>", "<cmd>echo 'use h to move, noob!!'<CR>", { desc = "Disable Left Arrow" })
+map({ "n" }, "<Right>", "<cmd>echo 'use l to move, noob!!'<CR>", { desc = "Disable Right Arrow" })
+map({ "n" }, "<Up>", "<cmd>echo 'use k to move, noob!!'<CR>", { desc = "Disable Up Arrow" })
+map({ "n" }, "<Down>", "<cmd>echo 'use j to move, noob!!'<CR>", { desc = "Disable Down Arrow" })
+
 -- Find by intent
 map("n", "<leader>sf", find_git_files, { desc = "Find Git Files" })
 map("n", "<leader>sF", find_all_files, { desc = "Find All Files" })
