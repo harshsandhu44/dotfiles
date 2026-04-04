@@ -50,6 +50,7 @@ BREW_PACKAGES=(
   lazygit
   neovim
   nvm
+  btop
   ripgrep
   stow
   tmux
