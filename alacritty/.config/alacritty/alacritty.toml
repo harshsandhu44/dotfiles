@@ -8,11 +8,11 @@ dynamic_padding = true
 decorations = "full"
 opacity = 1.0
 option_as_alt = "Both"
-startup_mode = "Windowed"
+startup_mode = "Fullscreen"
 dynamic_title = true
 
 [font]
-size = 16
+size = 20
 offset = { x = 0, y = 4 }
 glyph_offset = { x = 0, y = 0 }
 
@@ -44,17 +44,17 @@ TERM = "xterm-256color"
 [keyboard]
 bindings = [
   # Option+Arrow: word movement (fixes "D" being typed)
-  { key = "Left",  mods = "Alt", chars = "\u001bb" },
+  { key = "Left", mods = "Alt", chars = "\u001bb" },
   { key = "Right", mods = "Alt", chars = "\u001bf" },
 
   # Command+Left/Right: beginning/end of line
-  { key = "Left",  mods = "Command", chars = "\u001bOH" },
+  { key = "Left", mods = "Command", chars = "\u001bOH" },
   { key = "Right", mods = "Command", chars = "\u001bOF" },
 
   # Command+Up/Down: scroll page
-  { key = "Up",   mods = "Command", action = "ScrollPageUp" },
+  { key = "Up", mods = "Command", action = "ScrollPageUp" },
   { key = "Down", mods = "Command", action = "ScrollPageDown" },
-  { key = "Up",   mods = "Command|Shift", action = "ScrollToTop" },
+  { key = "Up", mods = "Command|Shift", action = "ScrollToTop" },
   { key = "Down", mods = "Command|Shift", action = "ScrollToBottom" },
 
   # Enter/exit vi mode
