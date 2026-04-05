@@ -10,16 +10,53 @@ return {
     },
     picker = {
       -- Configure the file picker sources to include hidden files
-      hidden = true, -- This enables hidden files globally for pickers
+      hidden = false, -- This enables hidden files globally for pickers
       explorer = {
         sources = {
-          hidden = true, -- Specifically for the explorer view
+          hidden = false, -- Specifically for the explorer view
           ignored = true, -- Optional: Show git-ignored files too (node_modules etc)
         },
         files = {
-          hidden = true, -- For <leader>ff (Find Files)
+          hidden = false, -- For <leader>ff (Find Files)
         },
       },
+    },
+  },
+  keys = {
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit.open()
+      end,
+      desc = "Open lazygit",
+    },
+    {
+      "<leader>gi",
+      function()
+        Snacks.picker.gh_issue()
+      end,
+      desc = "GitHub Issues (open)",
+    },
+    {
+      "<leader>gI",
+      function()
+        Snacks.picker.gh_issue({ state = "all" })
+      end,
+      desc = "GitHub Issues (all)",
+    },
+    {
+      "<leader>gp",
+      function()
+        Snacks.picker.gh_pr()
+      end,
+      desc = "GitHub Pull Requests (open)",
+    },
+    {
+      "<leader>gP",
+      function()
+        Snacks.picker.gh_pr({ state = "all" })
+      end,
+      desc = "GitHub Pull Requests (all)",
     },
   },
 }
