@@ -158,23 +158,3 @@ vim.api.nvim_create_autocmd("User", {
     end, { desc = "Blame Line" })
   end,
 })
-
--- LazyGit in Neovim
-map("n", "<leader>gg", function()
-  if vim.fn.exists(":LazyGit") == 2 then
-    vim.cmd("LazyGit")
-    return
-  end
-
-  if vim.fn.executable("lazygit") == 1 then
-    local ok, snacks = pcall(require, "snacks")
-    if ok and snacks.terminal then
-      snacks.terminal("lazygit")
-    else
-      vim.cmd("terminal lazygit")
-    end
-    return
-  end
-
-  vim.notify("lazygit binary not found in PATH", vim.log.levels.WARN)
-end, { desc = "LazyGit" })
