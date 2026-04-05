@@ -25,7 +25,7 @@ autoload -Uz compinit
 compinit
 
 eval "$(zoxide init zsh)"
-eval "$(muxx completion zsh)"
+source <(COMPLETE=zsh muxx)
 
 # aliases
 alias zshconfig="mate ~/.zshrc"
