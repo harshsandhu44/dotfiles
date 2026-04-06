@@ -26,6 +26,7 @@ compinit
 
 eval "$(zoxide init zsh)"
 source <(COMPLETE=zsh muxx)
+source <(fzf --zsh)
 
 # aliases
 alias zshconfig="mate ~/.zshrc"
@@ -43,10 +44,11 @@ source /usr/local/spear-dev-tools/runconfig.sh
 export AWS_PROFILE=personal
 
 export PATH="$HOME/.local/bin:$PATH"
+EDITOR=nvim
 
 # bun completions
 [ -s "/Users/harsh.sandhu/.bun/_bun" ] && source "/Users/harsh.sandhu/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:/usr/local/go/bin:$PATH"
