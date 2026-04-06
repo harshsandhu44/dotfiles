@@ -15,7 +15,12 @@ end
 
 local function find_all_files()
   if telescope_ok then
-    telescope.find_files()
+    -- use telescope to find all hidden and gitignored files, but ignore node_modules and dist folders
+    telescope.find_files({
+      hidden = true,
+      no_ignore = true,
+      find_command = { "rg", "--files", "--hidden", "--glob", "!node_modules/**", "--glob", "!dist/**" },
+    })
   end
 end
 
@@ -83,19 +88,45 @@ map("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspac
 map("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
 
 -- Come out of the insert mode
-map("i", "jj", "<Esc>", { desc = "Escape insert mode" })
+map("i", "jk", "<Esc>", { desc = "Escape insert mode" })
 
 -- Disable arrow keys
-map({ "n" }, "<Left>", "<cmd>echo 'use h to move, noob!!'<CR>", { desc = "Disable Left Arrow" })
-map({ "n" }, "<Right>", "<cmd>echo 'use l to move, noob!!'<CR>", { desc = "Disable Right Arrow" })
-map({ "n" }, "<Up>", "<cmd>echo 'use k to move, noob!!'<CR>", { desc = "Disable Up Arrow" })
-map({ "n" }, "<Down>", "<cmd>echo 'use j to move, noob!!'<CR>", { desc = "Disable Down Arrow" })
+map({ "n", "v" }, "<Left>", "<cmd>echo 'use h to move, noob!!'<CR>", { desc = "Disable Left Arrow" })
+map({ "n", "v" }, "<Right>", "<cmd>echo 'use l to move, noob!!'<CR>", { desc = "Disable Right Arrow" })
+map({ "n", "v" }, "<Up>", "<cmd>echo 'use k to move, noob!!'<CR>", { desc = "Disable Up Arrow" })
+map({ "n", "v" }, "<Down>", "<cmd>echo 'use j to move, noob!!'<CR>", { desc = "Disable Down Arrow" })
 
 -- Find by intent
 map("n", "<leader>sf", find_git_files, { desc = "Find Git Files" })
 map("n", "<leader>sF", find_all_files, { desc = "Find All Files" })
 map("n", "<leader>sg", live_grep, { desc = "Live Grep" })
 map("n", "<leader>sw", grep_word, { desc = "Grep Word Under Cursor" })
+map("n", "<leader>s/", function()
+  telescope.live_grep({
+    grep_open_files = true,
+    prompt_title = "Live Grep in Open Files",
+  })
+end, { desc = "[S]earch [/] in Open Files" })
+map("n", "<leader>?", telescope.oldfiles, { desc = "[?] Find recently opened files" })
+map("n", "<leader>sb", telescope.buffers, { desc = "[S]earch existing [B]uffers" })
+map("n", "<leader>sm", telescope.marks, { desc = "[S]earch [M]arks" })
+map("n", "<leader>gf", telescope.git_files, { desc = "Search [G]it [F]iles" })
+map("n", "<leader>gc", telescope.git_commits, { desc = "Search [G]it [C]ommits" })
+map("n", "<leader>gcf", telescope.git_bcommits, { desc = "Search [G]it [C]ommits for current [F]ile" })
+map("n", "<leader>gb", telescope.git_branches, { desc = "Search [G]it [B]ranches" })
+map("n", "<leader>gs", telescope.git_status, { desc = "Search [G]it [S]tatus (diff view)" })
+map("n", "<leader>sf", telescope.find_files, { desc = "[S]earch [F]iles" })
+map("n", "<leader>sh", telescope.help_tags, { desc = "[S]earch [H]elp" })
+map("n", "<leader>sw", telescope.grep_string, { desc = "[S]earch current [W]ord" })
+map("n", "<leader>sg", telescope.live_grep, { desc = "[S]earch by [G]rep" })
+map("n", "<leader>sd", telescope.diagnostics, { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>sr", telescope.resume, { desc = "[S]earch [R]resume" })
+map("n", "<leader>s.", telescope.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+map("n", "<leader>sds", function()
+  telescope.lsp_document_symbols({
+    symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
+  })
+end, { desc = "[S]each LSP document [S]ymbols" })
 
 -- Refactor
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Symbol" })
