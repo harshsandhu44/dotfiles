@@ -43,18 +43,26 @@ BREW_PACKAGES=(
   awscli
   bash
   bash-completion
+  btop
   fd
+  ffmpeg-full
   fontforge
   fzf
   gh
+  imagemagick-full
+  jq
   lazygit
   neovim
   nvm
-  btop
+  poppler
+  resvg
   ripgrep
+  sevenzip
   stow
+  superfile
   tmux
   tree-sitter
+  yazi
   zoxide
 )
 
@@ -67,9 +75,11 @@ for pkg in "${BREW_PACKAGES[@]}"; do
   fi
 done
 
+run brew link ffmpeg-full imagemagick-full -f --overwrite 2>/dev/null || true
+
 # ─── 3. Brew casks ───────────────────────────────────────────────────────────
 section "Homebrew casks"
-BREW_CASKS=(alacritty)
+BREW_CASKS=(alacritty font-symbols-only-nerd-font)
 
 for cask in "${BREW_CASKS[@]}"; do
   if brew list --cask "$cask" &>/dev/null; then
