@@ -5,19 +5,63 @@ return {
       enabled = false,
     },
     explorer = {
-      -- Show hidden files by default in the explorer/sidebar
-      replace_netrw = true, -- Ensure it replaces standard file browser
+      replace_netrw = true,
     },
     picker = {
-      -- Configure the file picker sources to include hidden files
-      hidden = false, -- This enables hidden files globally for pickers
-      explorer = {
-        sources = {
-          hidden = false, -- Specifically for the explorer view
-          ignored = true, -- Optional: Show git-ignored files too (node_modules etc)
+      sources = {
+        explorer = {
+          hidden = false,
+          git_status_open = true,
+          diagnostics_open = true,
+          layout = {
+            layout = {
+              width = 45,
+            },
+          },
         },
         files = {
-          hidden = false, -- For <leader>ff (Find Files)
+          hidden = false,
+        },
+      },
+      icons = {
+        files = {
+          enabled = true,
+          dir = "󰉋 ",
+          dir_open = "󰝰 ",
+          file = "󰈔 ",
+        },
+        tree = {
+          -- vertical = "│ ",
+          -- middle = "├╴",
+          -- last = "└╴",
+          vertical = "  ",
+          middle = " ",
+          last = "- ",
+        },
+        git = {
+          enabled = true,
+          staged = "●",
+          added = "",
+          deleted = "",
+          ignored = "◌",
+          modified = "○",
+          renamed = "󰁕",
+          unmerged = "",
+          untracked = "",
+        },
+        diagnostics = {
+          Error = " ",
+          Warn = " ",
+          Hint = "󰌶 ",
+          Info = " ",
+        },
+        ui = {
+          live = "󰐰 ",
+          hidden = "h",
+          ignored = "i",
+          follow = "f",
+          selected = "● ",
+          unselected = "○ ",
         },
       },
     },
