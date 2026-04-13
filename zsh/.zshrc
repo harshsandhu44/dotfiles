@@ -52,3 +52,16 @@ EDITOR=nvim
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:/usr/local/go/bin:$PATH"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/harsh.sandhu/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/harsh.sandhu/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/harsh.sandhu/Library/Application Support/Herd/config/php/82/"
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"

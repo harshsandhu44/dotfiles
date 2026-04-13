@@ -1,17 +1,21 @@
 return {
   {
-    "sainnhe/sonokai",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    config = function()
-      vim.g.sonokai_style = "maia"
-      vim.g.sonokai_better_performance = 1
-      vim.g.sonokai_transparent_background = 1
-    end,
+    opts = {
+      flavour = "auto",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
+      transparent_background = true,
+    },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "sonokai",
+      colorscheme = "catppuccin",
     },
   },
 }

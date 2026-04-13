@@ -26,35 +26,35 @@ return {
     {
       "<leader>gg",
       function()
-        Snacks.lazygit.open()
+        require("snacks").lazygit.open()
       end,
       desc = "Open lazygit",
     },
     {
       "<leader>gi",
       function()
-        Snacks.picker.gh_issue()
+        require("snacks").picker.gh_issue()
       end,
       desc = "GitHub Issues (open)",
     },
     {
       "<leader>gI",
       function()
-        Snacks.picker.gh_issue({ state = "all" })
+        require("snacks").picker.gh_issue({ state = "all" })
       end,
       desc = "GitHub Issues (all)",
     },
     {
       "<leader>gp",
       function()
-        Snacks.picker.gh_pr()
+        require("snacks").picker.gh_pr()
       end,
       desc = "GitHub Pull Requests (open)",
     },
     {
       "<leader>gP",
       function()
-        Snacks.picker.gh_pr({ state = "all" })
+        require("snacks").picker.gh_pr({ state = "all" })
       end,
       desc = "GitHub Pull Requests (all)",
     },
