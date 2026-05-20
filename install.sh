@@ -45,21 +45,14 @@ BREW_PACKAGES=(
   bash-completion
   btop
   fd
-  ffmpeg-full
-  fontforge
   fzf
   gh
-  imagemagick-full
   jq
   lazygit
   neovim
   nvm
-  poppler
-  resvg
   ripgrep
-  sevenzip
   stow
-  superfile
   tmux
   tree-sitter
   yazi
@@ -75,11 +68,9 @@ for pkg in "${BREW_PACKAGES[@]}"; do
   fi
 done
 
-run brew link ffmpeg-full imagemagick-full -f --overwrite 2>/dev/null || true
-
 # ─── 3. Brew casks ───────────────────────────────────────────────────────────
 section "Homebrew casks"
-BREW_CASKS=(alacritty font-symbols-only-nerd-font)
+BREW_CASKS=(ghostty font-symbols-only-nerd-font)
 
 for cask in "${BREW_CASKS[@]}"; do
   if brew list --cask "$cask" &>/dev/null; then
@@ -183,7 +174,7 @@ fi
 # ─── 10. Stow dotfiles ────────────────────────────────────────────────────────
 section "Stow dotfiles"
 cd "$DOTFILES_DIR"
-for pkg in alacritty nvim tmux zsh; do
+for pkg in alacritty ghostty nvim tmux zsh; do
   if [ -d "$DOTFILES_DIR/$pkg" ]; then
     if $DRY_RUN; then
       stow --simulate --restow "$pkg" 2>&1 && ok "$pkg (no conflicts)" || echo -e "  ${RED}✗${NC} $pkg would have conflicts"
