@@ -161,7 +161,32 @@ else
   run curl -fsSL https://bun.sh/install | bash
 fi
 
-# ─── 9. TPM (Tmux Plugin Manager) ────────────────────────────────────────────
+# ─── 9. pnpm ─────────────────────────────────────────────────────────────────
+section "pnpm"
+if command -v pnpm &>/dev/null; then
+  ok "pnpm $(pnpm --version)"
+else
+  would "pnpm"
+  run curl -fsSL https://get.pnpm.io/install.sh | sh -
+fi
+
+# ─── 10. Fonts ───────────────────────────────────────────────────────────────
+section "Fonts"
+FONTS_DIR="$HOME/Library/Fonts"
+FONT_SRC="$DOTFILES_DIR/fonts/google-sans-code-patched/GoogleSansCodeNerdFont-Regular.ttf"
+FONT_DEST="$FONTS_DIR/GoogleSansCodeNerdFont-Regular.ttf"
+if [ -f "$FONT_DEST" ]; then
+  ok "Google Sans Code Nerd Font already installed"
+else
+  would "Google Sans Code Nerd Font"
+  if ! $DRY_RUN; then
+    mkdir -p "$FONTS_DIR"
+    cp "$FONT_SRC" "$FONT_DEST"
+  fi
+  ok "Google Sans Code Nerd Font"
+fi
+
+# ─── 11. TPM (Tmux Plugin Manager) ───────────────────────────────────────────
 section "Tmux Plugin Manager"
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [ -d "$TPM_DIR" ]; then
@@ -171,10 +196,10 @@ else
   run git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-# ─── 10. Stow dotfiles ────────────────────────────────────────────────────────
+# ─── 12. Stow dotfiles ───────────────────────────────────────────────────────
 section "Stow dotfiles"
 cd "$DOTFILES_DIR"
-for pkg in alacritty ghostty nvim tmux zsh; do
+for pkg in alacritty btop ghostty muxx nvim tmux yazi zsh; do
   if [ -d "$DOTFILES_DIR/$pkg" ]; then
     if $DRY_RUN; then
       stow --simulate --restow "$pkg" 2>&1 && ok "$pkg (no conflicts)" || echo -e "  ${RED}✗${NC} $pkg would have conflicts"

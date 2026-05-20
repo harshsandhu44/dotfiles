@@ -24,8 +24,8 @@ fi
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/harsh.sandhu/.docker/completions $fpath)
+# Docker CLI completions (only if Docker Desktop is installed)
+[ -d "$HOME/.docker/completions" ] && fpath=("$HOME/.docker/completions" $fpath)
 autoload -Uz compinit
 compinit
 
@@ -40,10 +40,8 @@ alias pls="sudo"
 alias x="clear"
 alias vim="nvim"
 
-# Flutter Path
-export PATH=$HOME/development/flutter/bin:$PATH
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /usr/local/spear-dev-tools/runconfig.sh
+[ -f /usr/local/spear-dev-tools/runconfig.sh ] && source /usr/local/spear-dev-tools/runconfig.sh
 
 # Default AWS profile
 export AWS_PROFILE=personal
@@ -56,20 +54,7 @@ EDITOR=nvim
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:/usr/local/go/bin:$PATH"
-
-
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/harsh.sandhu/Library/Application Support/Herd/config/php/84/"
-
-
-# Herd injected PHP binary.
-export PATH="/Users/harsh.sandhu/Library/Application Support/Herd/bin/":$PATH
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/harsh.sandhu/Library/Application Support/Herd/config/php/82/"
-export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Zoxide with fzf
 zi() {
