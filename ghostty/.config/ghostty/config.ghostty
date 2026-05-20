@@ -1,0 +1,86 @@
+# vim: ft=ghostty
+font-family                    = GoogleSansCode Nerd Font
+font-size                      = 16
+font-thicken                   = true
+adjust-cell-height             = 2
+window-inherit-font-size       = true
+
+# Look and Feel
+theme                          = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
+window-padding-x               = 4
+window-padding-y               = 4,0
+window-padding-color           = extend
+window-step-resize             = false
+macos-icon                     = custom-style
+macos-icon-frame               = plastic
+macos-icon-ghost-color         = #cdd6f4
+macos-icon-screen-color        = #1e1e2e
+adjust-cursor-thickness        = 2
+cursor-style                   = block
+cursor-style-blink             = false
+bold-color                     = bright
+link-url                       = true
+macos-titlebar-style           = transparent
+mouse-hide-while-typing        = true
+window-save-state              = always
+# background-opacity             = 0.90
+# background-blur-radius         = 10
+# background-blur                = true
+# unfocused-split-opacity        = 0.30
+
+# Other
+clipboard-paste-protection     = true
+clipboard-trim-trailing-spaces = true
+copy-on-select                 = true
+macos-auto-secure-input        = true
+macos-secure-input-indication  = true
+quit-after-last-window-closed  = false
+command                        = direct:/bin/zsh --login
+shell-integration-features     = no-cursor,sudo,title
+
+# Key bindings
+macos-option-as-alt            = true
+keybind                        = cmd+right=text:\x05
+keybind                        = cmd+left=text:\x01
+keybind                        = cmd+backspace=text:\x15
+
+# Ctrl 0 - 9
+keybind                        = ctrl+0=text:\x1b[48;5u
+keybind                        = ctrl+1=text:\x1b[49;5u
+keybind                        = ctrl+2=text:\x1b[50;5u
+keybind                        = ctrl+3=text:\x1b[51;5u
+keybind                        = ctrl+4=text:\x1b[52;5u
+keybind                        = ctrl+5=text:\x1b[53;5u
+keybind                        = ctrl+6=text:\x1b[54;5u
+keybind                        = ctrl+7=text:\x1b[55;5u
+keybind                        = ctrl+8=text:\x1b[56;5u
+keybind                        = ctrl+9=text:\x1b[57;5u
+
+# Ctrl + . , ; /
+keybind                        = ctrl+.=text:\x1b[46;5u
+keybind                        = ctrl+,=text:\x1b[44;5u
+keybind                        = ctrl+;=text:\x1b[59;5u
+keybind                        = ctrl+/=text:\x1f
+
+# Shift + Enter
+# FIXME: does not work in Claude Code
+keybind                        = shift+enter=text:\x1b[13;2u
+# keybind                        = shift+enter=text:\x1b\r
+
+# Ctrl + I & Ctrl + M
+keybind                        = ctrl+i=text:\x1b[105;5u
+keybind                        = ctrl+m=text:\x1b[109;5u
+
+# Ctrl + Shift
+keybind                        = ctrl+shift+h=text:\x1b[72;6u
+keybind                        = ctrl+shift+j=text:\x1b[74;6u
+keybind                        = ctrl+shift+k=text:\x1b[75;6u
+keybind                        = ctrl+shift+l=text:\x1b[76;6u
+
+keybind                        = ctrl+shift+u=text:\x1b[117;6u
+keybind                        = ctrl+shift+o=text:\x1b[111;6u
+keybind                        = ctrl+shift+p=text:\x1b[112;6u
+
+keybind                        = ctrl+shift+s=text:\x1b[108;6u
+
+keybind = super+r=reload_config

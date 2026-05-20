@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/catppuccin.toml"]
+import = ["~/.config/alacritty/themes/catppuccin_mocha.toml"]
 live_config_reload = true
 
 [window]
@@ -12,7 +12,7 @@ startup_mode = "Fullscreen"
 dynamic_title = true
 
 [font]
-size = 20
+size = 16
 offset = { x = 0, y = 4 }
 glyph_offset = { x = 0, y = 0 }
 
@@ -40,6 +40,7 @@ hide_when_typing = true
 
 [env]
 TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [keyboard]
 bindings = [
@@ -56,29 +57,4 @@ bindings = [
   { key = "Down", mods = "Command", action = "ScrollPageDown" },
   { key = "Up", mods = "Command|Shift", action = "ScrollToTop" },
   { key = "Down", mods = "Command|Shift", action = "ScrollToBottom" },
-
-  # Enter/exit vi mode
-  { key = "Space", mods = "Control|Shift", action = "ToggleViMode" },
-  { key = "Escape", mode = "Vi", action = "ToggleViMode" },
-
-  # Vi mode: movement
-  { key = "H", mode = "Vi|~Search", action = "Left" },
-  { key = "J", mode = "Vi|~Search", action = "Down" },
-  { key = "K", mode = "Vi|~Search", action = "Up" },
-  { key = "L", mode = "Vi|~Search", action = "Right" },
-  { key = "W", mode = "Vi|~Search", action = "SemanticRight" },
-  { key = "B", mode = "Vi|~Search", action = "SemanticLeft" },
-  { key = "E", mode = "Vi|~Search", action = "SemanticRightEnd" },
-  { key = "G", mode = "Vi|~Search", action = "ScrollToBottom" },
-  { key = "G", mods = "Shift", mode = "Vi|~Search", action = "ScrollToTop" },
-
-  # Vi mode: selection
-  { key = "V", mode = "Vi|~Search", action = "ToggleNormalSelection" },
-  { key = "V", mods = "Shift", mode = "Vi|~Search", action = "ToggleLineSelection" },
-
-  # Vi mode: copy & search
-  { key = "Y", mode = "Vi|~Search", action = "Copy" },
-  { key = "Slash", mode = "Vi|~Search", action = "SearchForward" },
-  { key = "N", mode = "Vi|~Search", action = "SearchNext" },
-  { key = "N", mods = "Shift", mode = "Vi|~Search", action = "SearchPrevious" },
 ]
