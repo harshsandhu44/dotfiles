@@ -4,18 +4,15 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
-      flavour = "auto",
-      background = {
-        light = "latte",
-        dark = "mocha",
-      },
+      flavour = "mocha",
       transparent_background = true,
+      auto_integrations = true,
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-nvim",
     },
   },
 }
