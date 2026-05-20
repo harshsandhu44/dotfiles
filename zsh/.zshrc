@@ -1,11 +1,16 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jbergantine"
 zstyle ':omz:update' frequency 7
 
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(git)
+plugins=(
+  git
+  fzf
+  rust
+  vi-mode
+)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -24,13 +29,13 @@ fpath=(/Users/harsh.sandhu/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
-eval "$(zoxide init zsh)"
 source <(COMPLETE=zsh muxx)
 source <(fzf --zsh)
 
 # aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cd="z"
 alias pls="sudo"
 alias x="clear"
 alias vim="nvim"
@@ -65,3 +70,24 @@ export PATH="/Users/harsh.sandhu/Library/Application Support/Herd/bin/":$PATH
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/harsh.sandhu/Library/Application Support/Herd/config/php/82/"
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+
+# Zoxide with fzf
+zi() {
+  local dir
+  dir=$(zoxide query -l | head -50 | fzf --preview 'ls -la {}') && z "$dir"
+ }
+
+# Claude Code
+alias cc='claude'
+alias ccr='claude --resume'
+function ccp() { claude --print "$@" }
+
+# pnpm
+export PNPM_HOME="/Users/harsh.sandhu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+eval "$(zoxide init zsh)"
